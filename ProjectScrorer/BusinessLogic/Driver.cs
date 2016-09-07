@@ -9,12 +9,11 @@ namespace BusinessLogic
 {
     class Driver
     {
-        public void CallAlRules()
+        public void CallAllRules ()
         {
             //calls all rules
-            Records rec  = new Records();
             int total;
-            foreach (var row in rec.records)
+            foreach (var row in Records.records)
             {
                 total = 0;
                 total += Rule1.logic(row).score;

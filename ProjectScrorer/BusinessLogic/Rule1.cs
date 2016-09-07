@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectDomain;
+using ProjectDomain.Result;
 
 namespace BusinessLogic
 {
@@ -12,9 +13,9 @@ namespace BusinessLogic
         static Result result = new Result();
         public static Result logic(ExcelDataRow row)
         {
-            /*
-              Write logic here 
-            */
+            result.signalColor = row.HasRepositorySystem == false ? Result.colors.red : (row.HasBackup == true ? Result.colors.green : Result.colors.yellow);
+            result.score = result.signalColor.ToString().Equals("red") ? 0 : result.signalColor.ToString().Equals("green") ? 5 : 4;
+
             Console.WriteLine( "Score for rule 1 : "+result.score );
             Console.WriteLine("Color : " + result.signalColor.ToString());
             return result ;

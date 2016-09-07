@@ -8,6 +8,7 @@ namespace ProjectDomain
 {
     public class ExcelDataRow
     {
-        // from excel
+        public bool HasRepositorySystem { get; set; }
+        public bool HasBackup { get; set; }
     }
 }
