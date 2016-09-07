@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>80b1d50c-78c4-4f29-9859-e67f6c14ad75</ProjectGuid>
+    <ProjectGuid>{16A16616-843F-4D50-8D32-70D91829A745}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataAccess_Dummy_</RootNamespace>

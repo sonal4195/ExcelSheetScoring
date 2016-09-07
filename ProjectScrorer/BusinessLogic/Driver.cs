@@ -11,6 +11,7 @@ namespace BusinessLogic
     {
         public void CallAlRules()
         {
+            //calls all rules
             Records rec  = new Records();
             int total;
             foreach (var row in rec.records)
