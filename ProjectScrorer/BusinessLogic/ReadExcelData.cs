@@ -97,6 +97,9 @@ namespace BusinessLogic
 
                     //RULE 12: Development Model
                     updatedRows[rowNum].DevModel = Worksheet.Cells[rowNum, 19].ToString().ToLower();
+
+                    //RULE 14: Test Coverage
+                    updatedRows[rowNum].TestCoverage = Worksheet.Cells[rowNum, 30].ToString().ToLower();
                 }
             }
             Records.records = updatedRows;

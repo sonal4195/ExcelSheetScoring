@@ -7,28 +7,22 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    static class Rule12 :IRule
+    static class Rule14:IRule
     {
         public static Result logic(ExcelDataRow row)
         {
             Result result = new Result();
-            if (row.DevModel.ToLower().Contains("mixed") && row.Tests.ToLower().Contains("agile/scrum"))
+            if (row.TestCoverage.ToLower().Contains("more than 80%"))
             {
                 result.signalColor = Result.colors.green;
-                result.score = 5;
             }
-            else if (row.DevModel.ToLower().Contains("mixed") && row.Tests.ToLower().Contains("waterfall"))
+            else if (row.TestCoverage.ToLower().Contains("50 - 80"))
             {
                 result.signalColor = Result.colors.yellow;
-                result.score = 4;
             }
             else
             {
                 result.signalColor = Result.colors.red;
-                //manual evaluation for score
-                Random r = new Random();
-                int rInt = r.Next(1, 9);
-                result.score = rInt;
             }
             return result;
         }
