@@ -23,6 +23,7 @@ namespace BusinessLogic
                 total += Rule5.logic(row).score;
                 total += Rule6.logic(row).score;
                 total += Rule8.logic(row).score;
+                total += Rule10.logic(row).score;
                 /* call all rules here */
                 Console.WriteLine("Total score: " + total);
             }
