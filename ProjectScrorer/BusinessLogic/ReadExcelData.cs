@@ -30,6 +30,7 @@ namespace BusinessLogic
                     if (Worksheet.Cells[rowNum, 14].ToString().ToLower().Contains("no"))  
                     {
                         updatedRows[rowNum].HasRepositorySystem = false;
+                        updatedRows[rowNum].HasBackup = false;
                     }
                     else
                     {
