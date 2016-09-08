@@ -85,6 +85,10 @@ namespace BusinessLogic
 
                     // RULE 5 : application monitoring  
                     updatedRows[rowNum].ApplicationMonitoring = Worksheet.Cells[rowNum, 24].ToString().ToLower();
+
+                    // RULE 6 : Documentaion
+                    updatedRows[rowNum].Documentation = Worksheet.Cells[rowNum, 25].ToString().ToLower();
+
                 }
             }
             Records.records = updatedRows;
