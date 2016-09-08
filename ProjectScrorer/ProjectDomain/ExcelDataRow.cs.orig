@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectDomain
+{
+    public class ExcelDataRow
+    {
+        public bool HasRepositorySystem { get; set; }
+        public bool HasBackup { get; set; }
+<<<<<<< HEAD
+        public string ProjectManagementTool { get; set; }
+
+=======
+        public bool BranchingUsed { get; set; }
+        public bool TaggedReleases { get; set; }
+>>>>>>> 2febcb9b0d877a160398c8d6cc2a01644fce22bb
+    }
+}
