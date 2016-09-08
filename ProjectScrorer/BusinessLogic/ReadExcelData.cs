@@ -26,7 +26,7 @@ namespace BusinessLogic
                 var totalColumns = Worksheet.Dimension.End.Column;
                 for (int rowNum = 2; rowNum <= totalRows; rowNum++)
                 {
-                    // check if there is any source control system 
+                    // check if there is any source control system : RULE 1
                     if (Worksheet.Cells[rowNum, 14].ToString().ToLower().Contains("no"))  
                     {
                         updatedRows[rowNum].HasRepositorySystem = false;
@@ -45,6 +45,9 @@ namespace BusinessLogic
                             updatedRows[rowNum].HasBackup = true;
                         }
                     }
+
+                    // add project management tool :  RULE 3
+                    updatedRows[rowNum].ProjectManagementTool = Worksheet.Cells[rowNum, 22].ToString().ToLower();
                 }
             }
             Records.records = updatedRows;

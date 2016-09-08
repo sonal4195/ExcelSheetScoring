@@ -10,5 +10,7 @@ namespace ProjectDomain
     {
         public bool HasRepositorySystem { get; set; }
         public bool HasBackup { get; set; }
+        public string ProjectManagementTool { get; set; }
+
     }
 }
