@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    static class Rule10
+    static class Rule10 : IRule
     {
         public static Result logic(ExcelDataRow row)
         {
