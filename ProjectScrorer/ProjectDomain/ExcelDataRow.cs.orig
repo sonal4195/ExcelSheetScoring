@@ -18,12 +18,16 @@ namespace ProjectDomain
         public string ApplicationMonitoring { get; set; }
         public string Documentation { get; set; }
         public string Tests { get; set; }
-<<<<<<< HEAD
 
         public string AutomatedBuildAndDeployment { get; set; }
-=======
         public string CodeReview { get; set; }
         public string DevModel { get; set; }
->>>>>>> 8710624fac1fd272f9a431c962fb01c3fbc582b0
+<<<<<<< HEAD
+
+        public bool FollowCodeGuidelines { get; set; }
+        public string GuideLines { get; set; }
+=======
+        public string TestCoverage { get; set; }
+>>>>>>> fa637092a2ee3cec88a13fc082a29d16c3fb00ca
     }
 }

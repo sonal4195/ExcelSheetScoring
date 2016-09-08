@@ -25,5 +25,6 @@ namespace ProjectDomain
 
         public bool FollowCodeGuidelines { get; set; }
         public string GuideLines { get; set; }
+        public string TestCoverage { get; set; }
     }
 }
