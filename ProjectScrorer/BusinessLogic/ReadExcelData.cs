@@ -102,8 +102,14 @@ namespace BusinessLogic
                     //RULE 10: Code Reviews
                     updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 34].ToString().ToLower();
 
+                    // RULE 11 :  Design discussions
+                    updatedRows[rowNum].DesignDiscussions = Worksheet.Cells[rowNum, 35].ToString().ToLower();
+
                     //RULE 12: Development Model
                     updatedRows[rowNum].DevModel = Worksheet.Cells[rowNum, 19].ToString().ToLower();
+
+                    // RULE 13 : Scrum Practices
+                    updatedRows[rowNum].ScrumPractices = Worksheet.Cells[rowNum, 36].ToString().ToLower();
 
                     //RULE 14: Test Coverage
                     updatedRows[rowNum].TestCoverage = Worksheet.Cells[rowNum, 30].ToString().ToLower();

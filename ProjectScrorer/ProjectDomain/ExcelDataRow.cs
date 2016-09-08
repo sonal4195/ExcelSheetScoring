@@ -26,5 +26,8 @@ namespace ProjectDomain
         public bool FollowCodeGuidelines { get; set; }
         public string GuideLines { get; set; }
         public string TestCoverage { get; set; }
+
+        public string DesignDiscussions { get; set; }
+        public string ScrumPractices { get; set; }
     }
 }
