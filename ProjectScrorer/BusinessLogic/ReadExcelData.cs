@@ -45,6 +45,23 @@ namespace BusinessLogic
                             updatedRows[rowNum].HasBackup = true;
                         }
                     }
+                    if (Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("still in deciding stage") || Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("no"))
+                    {
+                        updatedRows[rowNum].BranchingUsed = false;
+                        updatedRows[rowNum].TaggedReleases = false;
+                    }
+                    else
+                    {
+                        updatedRows[rowNum].BranchingUsed = true;
+                        if (Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("branch per release"))
+                        {
+                            updatedRows[rowNum].TaggedReleases = true;
+                        }
+                        else
+                        {
+                            updatedRows[rowNum].TaggedReleases = false;
+                        }
+                    }
 
                     // add project management tool :  RULE 3
                     updatedRows[rowNum].ProjectManagementTool = Worksheet.Cells[rowNum, 22].ToString().ToLower();

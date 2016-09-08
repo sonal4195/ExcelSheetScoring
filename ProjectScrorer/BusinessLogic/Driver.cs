@@ -17,8 +17,9 @@ namespace BusinessLogic
             {
                 total = 0;
                 total += Rule1.logic(row).score;
+                total += Rule2.logic(row).score;
                 /* call all rules here */
-                Console.WriteLine("Total : " + total);
+                Console.WriteLine("Total score: " + total);
             }
         }
     }
