@@ -50,6 +50,8 @@
     <Compile Include="Rule2.cs" />
     <Compile Include="Rule3.cs" />
     <Compile Include="Rule4.cs" />
+    <Compile Include="Rule5.cs" />
+    <Compile Include="Rule6.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectDomain\ProjectDomain.csproj">

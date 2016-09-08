@@ -89,6 +89,8 @@ namespace BusinessLogic
                     // RULE 6 : Documentaion
                     updatedRows[rowNum].Documentation = Worksheet.Cells[rowNum, 25].ToString().ToLower();
 
+                    //RULE 7 :Tests
+                    updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 29].ToString().ToLower();
                 }
             }
             Records.records = updatedRows;
