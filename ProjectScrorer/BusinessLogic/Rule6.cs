@@ -9,9 +9,10 @@ namespace BusinessLogic
 {
     static class Rule6 :IRule
     {
-        static Result result = new Result();
+        
         public static Result logic(ExcelDataRow row)
         {
+            Result result = new Result();
             if (row.Documentation.ToLower().Contains("low level design") && row.Documentation.ToLower().Contains("unit test cases") && row.Documentation.ToLower().Contains("system test cases") && row.Documentation.ToLower().Contains("license agreements"))
             {
                 result.signalColor = Result.colors.green;
