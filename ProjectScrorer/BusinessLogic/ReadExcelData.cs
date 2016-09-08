@@ -45,6 +45,7 @@ namespace BusinessLogic
                             updatedRows[rowNum].HasBackup = true;
                         }
                     }
+                    //check for rule 2
                     if (Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("still in deciding stage") || Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("no"))
                     {
                         updatedRows[rowNum].BranchingUsed = false;
@@ -60,6 +61,22 @@ namespace BusinessLogic
                         else
                         {
                             updatedRows[rowNum].TaggedReleases = false;
+                        }
+                    }
+                    //check for rule 4
+                    if (Worksheet.Cells[rowNum, 23].ToString().ToLower().Contains("na"))
+                    {
+                        updatedRows[rowNum].DocTool = "RedDocTool";
+                    }
+                    else
+                    {
+                        if(Worksheet.Cells[rowNum, 23].ToString().ToLower().Contains("word/excel"))
+                        {
+                            updatedRows[rowNum].DocTool = "YellowDocTool";
+                        }
+                        else
+                        {
+                            updatedRows[rowNum].DocTool = "GreenDocTool";
                         }
                     }
                 }
