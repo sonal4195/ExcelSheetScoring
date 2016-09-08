@@ -82,6 +82,9 @@ namespace BusinessLogic
                             updatedRows[rowNum].DocTool = "GreenDocTool";
                         }
                     }
+
+                    // RULE 5 : application monitoring  
+                    updatedRows[rowNum].ApplicationMonitoring = Worksheet.Cells[rowNum, 24].ToString().ToLower();
                 }
             }
             Records.records = updatedRows;

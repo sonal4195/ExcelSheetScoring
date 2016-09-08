@@ -16,5 +16,11 @@ namespace ProjectDomain
         };
         public colors signalColor { get; set; }
         public int score { get; set; }
+
+        public Result()
+        {
+            signalColor = colors.red;
+            score = 0;
+        }
     }
 }

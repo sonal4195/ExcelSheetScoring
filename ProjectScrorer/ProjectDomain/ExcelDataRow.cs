@@ -15,5 +15,6 @@ namespace ProjectDomain
         public bool BranchingUsed { get; set; }
         public bool TaggedReleases { get; set; }
         public string DocTool { get; set; }
+        public string ApplicationMonitoring { get; set; }
     }
 }
