@@ -10,9 +10,10 @@ namespace BusinessLogic
 {
     class Rule5 : IRule
     {
-        static Result result = new Result();
+       
         public static Result logic(ExcelDataRow row)
         {
+                Result result = new Result();
                 List<string> monitor = new List<string>();
                 monitor.Add("memory"); monitor.Add("disk");
                 foreach (var check in monitor)

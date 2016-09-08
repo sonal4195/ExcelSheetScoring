@@ -10,9 +10,9 @@ namespace BusinessLogic
 {
     static class Rule1 : IRule
     {
-        static Result result = new Result();
         public static Result logic(ExcelDataRow row)
         {
+            Result result = new Result();
             result.signalColor = row.HasRepositorySystem == false ? Result.colors.red : (row.HasBackup == true ? Result.colors.green : Result.colors.yellow);
             result.score = result.signalColor.ToString().Equals("red") ? 0 : result.signalColor.ToString().Equals("green") ? 5 : 4;
 

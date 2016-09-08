@@ -9,9 +9,10 @@ namespace BusinessLogic
 {
     class Rule3 : IRule
     {
-        static Result result = new Result();
+        
         public static Result logic(ExcelDataRow row)
         {
+            Result result = new Result();
             if (row.ProjectManagementTool.Contains("na") || row.ProjectManagementTool.Contains("none"))
             {
                 result.signalColor = Result.colors.red;
