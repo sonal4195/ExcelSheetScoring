@@ -8,7 +8,7 @@ using ProjectDomain.Result;
 
 namespace BusinessLogic
 {
-    static class Rule1
+    static class Rule1 : IRule
     {
         static Result result = new Result();
         public static Result logic(ExcelDataRow row)
