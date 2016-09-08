@@ -16,5 +16,7 @@ namespace ProjectDomain
         public bool TaggedReleases { get; set; }
         public string DocTool { get; set; }
         public string ApplicationMonitoring { get; set; }
+        public string Documentation { get; set; }
+        public string Tests { get; set; }
     }
 }
