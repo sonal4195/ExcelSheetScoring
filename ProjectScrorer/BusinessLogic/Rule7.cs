@@ -13,7 +13,7 @@ namespace BusinessLogic
         public static Result logic(ExcelDataRow row)
         {
             Result result = new Result();
-            Console.WriteLine("Score for rule 5 : " + result.score);
+            Console.WriteLine("Score for rule 7 : " + result.score);
             Console.WriteLine("Color : " + result.signalColor.ToString());
             return result;
         }
