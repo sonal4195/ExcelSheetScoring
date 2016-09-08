@@ -95,6 +95,10 @@ namespace BusinessLogic
                     //RULE 8 :Tests
                     updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 29].ToString().ToLower();
 
+                    // RULE 9 : Coding guidelines followed
+                    updatedRows[rowNum].FollowCodeGuidelines = Worksheet.Cells[rowNum,32].ToString().ToLower().Contains("no") ? false : true;
+                    updatedRows[rowNum].GuideLines = Worksheet.Cells[rowNum, 33].ToString().ToLower();
+
                     //RULE 10: Code Reviews
                     updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 34].ToString().ToLower();
 

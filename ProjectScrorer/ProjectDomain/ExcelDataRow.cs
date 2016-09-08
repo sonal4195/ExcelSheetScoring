@@ -22,5 +22,8 @@ namespace ProjectDomain
         public string AutomatedBuildAndDeployment { get; set; }
         public string CodeReview { get; set; }
         public string DevModel { get; set; }
+
+        public bool FollowCodeGuidelines { get; set; }
+        public string GuideLines { get; set; }
     }
 }
