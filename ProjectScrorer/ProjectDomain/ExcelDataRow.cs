@@ -18,6 +18,8 @@ namespace ProjectDomain
         public string ApplicationMonitoring { get; set; }
         public string Documentation { get; set; }
         public string Tests { get; set; }
+
+        public string AutomatedBuildAndDeployment { get; set; }
         public string CodeReview { get; set; }
         public string DevModel { get; set; }
         public string TestCoverage { get; set; }

@@ -10,12 +10,20 @@ namespace ProjectDomain
     {
         public bool HasRepositorySystem { get; set; }
         public bool HasBackup { get; set; }
-<<<<<<< HEAD
         public string ProjectManagementTool { get; set; }
 
-=======
         public bool BranchingUsed { get; set; }
         public bool TaggedReleases { get; set; }
->>>>>>> 2febcb9b0d877a160398c8d6cc2a01644fce22bb
+        public string DocTool { get; set; }
+        public string ApplicationMonitoring { get; set; }
+        public string Documentation { get; set; }
+        public string Tests { get; set; }
+<<<<<<< HEAD
+
+        public string AutomatedBuildAndDeployment { get; set; }
+=======
+        public string CodeReview { get; set; }
+        public string DevModel { get; set; }
+>>>>>>> 8710624fac1fd272f9a431c962fb01c3fbc582b0
     }
 }

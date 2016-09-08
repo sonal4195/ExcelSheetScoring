@@ -63,7 +63,9 @@ namespace BusinessLogic
                             updatedRows[rowNum].TaggedReleases = false;
                         }
                     }
-<<<<<<< HEAD
+
+                    // add project management tool :  RULE 3
+                    updatedRows[rowNum].ProjectManagementTool = Worksheet.Cells[rowNum, 22].ToString().ToLower();
                     //check for rule 4
                     if (Worksheet.Cells[rowNum, 23].ToString().ToLower().Contains("na"))
                     {
@@ -80,11 +82,27 @@ namespace BusinessLogic
                             updatedRows[rowNum].DocTool = "GreenDocTool";
                         }
                     }
-=======
 
-                    // add project management tool :  RULE 3
-                    updatedRows[rowNum].ProjectManagementTool = Worksheet.Cells[rowNum, 22].ToString().ToLower();
->>>>>>> 75c9f4b763d0bdc0305632afce1891c51ccfbe85
+                    // RULE 5 : application monitoring  
+                    updatedRows[rowNum].ApplicationMonitoring = Worksheet.Cells[rowNum, 24].ToString().ToLower();
+
+                    // RULE 6 : Documentaion
+                    updatedRows[rowNum].Documentation = Worksheet.Cells[rowNum, 25].ToString().ToLower();
+
+<<<<<<< HEAD
+                    // RULE  7 : Automated builds and  deployment
+                    updatedRows[rowNum].AutomatedBuildAndDeployment = Worksheet.Cells[rowNum, 27].ToString().ToLower();
+
+=======
+>>>>>>> 8710624fac1fd272f9a431c962fb01c3fbc582b0
+                    //RULE 8 :Tests
+                    updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 29].ToString().ToLower();
+
+                    //RULE 10: Code Reviews
+                    updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 34].ToString().ToLower();
+
+                    //RULE 12: Development Model
+                    updatedRows[rowNum].DevModel = Worksheet.Cells[rowNum, 19].ToString().ToLower();
                 }
             }
             Records.records = updatedRows;

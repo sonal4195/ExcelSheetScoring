@@ -89,6 +89,9 @@ namespace BusinessLogic
                     // RULE 6 : Documentaion
                     updatedRows[rowNum].Documentation = Worksheet.Cells[rowNum, 25].ToString().ToLower();
 
+                    // RULE  7 : Automated builds and  deployment
+                    updatedRows[rowNum].AutomatedBuildAndDeployment = Worksheet.Cells[rowNum, 27].ToString().ToLower();
+
                     //RULE 8 :Tests
                     updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 29].ToString().ToLower();
 
