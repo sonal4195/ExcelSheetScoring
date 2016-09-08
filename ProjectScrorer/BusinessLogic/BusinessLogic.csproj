@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Rule5.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="ReadExcelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,8 +51,9 @@
     <Compile Include="Rule2.cs" />
     <Compile Include="Rule3.cs" />
     <Compile Include="Rule4.cs" />
-    <Compile Include="Rule5.cs" />
     <Compile Include="Rule6.cs" />
+    <Compile Include="Rule7.cs" />
+    <Compile Include="Rule8.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectDomain\ProjectDomain.csproj">
