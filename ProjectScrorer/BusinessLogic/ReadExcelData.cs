@@ -94,6 +94,12 @@ namespace BusinessLogic
 
                     //RULE 8 :Tests
                     updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 29].ToString().ToLower();
+
+                    //RULE 10: Code Reviews
+                    updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 34].ToString().ToLower();
+
+                    //RULE 12: Development Model
+                    updatedRows[rowNum].DevModel = Worksheet.Cells[rowNum, 19].ToString().ToLower();
                 }
             }
             Records.records = updatedRows;

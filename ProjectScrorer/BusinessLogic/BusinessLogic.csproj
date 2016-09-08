@@ -48,6 +48,8 @@
     <Compile Include="ReadExcelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rule1.cs" />
+    <Compile Include="Rule10.cs" />
+    <Compile Include="Rule12.cs" />
     <Compile Include="Rule2.cs" />
     <Compile Include="Rule3.cs" />
     <Compile Include="Rule4.cs" />
