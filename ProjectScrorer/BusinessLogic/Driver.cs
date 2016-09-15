@@ -26,7 +26,7 @@ namespace BusinessLogic
             Rule12 rule12 = new Rule12();
             Rule13 rule13 = new Rule13();
             ReadExcelData readData = new ReadExcelData();
-            readData.ReadFromExcelFile("C:\\Users\\Sonal Verma\\Downloads\\Survey_data_2016.xlsx");
+            readData.ReadFromExcelFile("");
             //calls all rules
             int total;
             foreach (var row in Records.records)
