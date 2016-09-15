@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessLogic.Helpers;
 using ProjectDomain;
+using System.Collections.Generic;
 
-namespace BusinessLogic
+namespace BusinessLogic.Rules
 {
     public class Rule7 : IRule
     {        
-        public Result logic(ExcelDataRow row)
+        public Result Evaluate(ExcelDataRow row)
         {
             Result result = new Result();
             if (row.AutomatedBuildAndDeployment.Contains("no") || row.AutomatedBuildAndDeployment.Contains("na"))
             {
-                result.signalColor = Result.colors.red;
-                result.score = 0;
+                result.SignalColor = Colors.Red;
+                result.Score = 0;
             }
             List<string> conditions = new List<string>();
             conditions.Add("build on each commit");
@@ -27,24 +24,23 @@ namespace BusinessLogic
             foreach (var check in conditions)
             {
                 if (row.AutomatedBuildAndDeployment.Contains(check))
-                    result.score += 2;
+                    result.Score += 2;
             }
-            if (result.score < 8)
+            if (result.Score < 8)
             {
-                result.signalColor = Result.colors.red;
+                result.SignalColor = Colors.Red;
             }
-            else if (result.score > 8)
+            else if (result.Score > 8)
             {
-                result.score = 10;
-                result.signalColor = Result.colors.green;
+                result.Score = 10;
+                result.SignalColor = Colors.Green;
             }
             else
             {
-                result.score = 8;
-                result.signalColor = Result.colors.yellow;
+                result.Score = 8;
+                result.SignalColor = Colors.Yellow;
             }
-            Console.WriteLine("Score for rule 7 : " + result.score);
-            Console.WriteLine("Color : " + result.signalColor.ToString());
+            Logger.LogRuleResult(this, result);
             return result;
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectDomain;
+using BusinessLogic.Rules;
 
 namespace BusinessLogic
 {
@@ -20,22 +21,30 @@ namespace BusinessLogic
             Rule7 rule7 = new Rule7();
             Rule8 rule8 = new Rule8();
             Rule9 rule9 = new Rule9();
+            Rule10 rule10 = new Rule10();
+            Rule11 rule11 = new Rule11();
+            Rule12 rule12 = new Rule12();
+            Rule13 rule13 = new Rule13();
             ReadExcelData readData = new ReadExcelData();
-            readData.ReadFromExcelFile("");
+            readData.ReadFromExcelFile("C:\\Users\\Sonal Verma\\Downloads\\Survey_data_2016.xlsx");
             //calls all rules
             int total;
             foreach (var row in Records.records)
             {                
                 total = 0;
-                total += rule1.logic(row).score;
-                total += rule2.logic(row).score;
-                total += rule3.logic(row).score;
-                total += rule4.logic(row).score;
-                total += rule5.logic(row).score;
-                total += rule6.logic(row).score;
-                total += rule7.logic(row).score;
-                total += rule8.logic(row).score;
-                total += rule9.logic(row).score;
+                total += rule1.Evaluate(row).Score;
+                total += rule2.Evaluate(row).Score;
+                total += rule3.Evaluate(row).Score;
+                total += rule4.Evaluate(row).Score;
+                total += rule5.Evaluate(row).Score;
+                total += rule6.Evaluate(row).Score;
+                total += rule7.Evaluate(row).Score;
+                total += rule8.Evaluate(row).Score;
+                total += rule9.Evaluate(row).Score;
+                total += rule10.Evaluate(row).Score;
+                total += rule11.Evaluate(row).Score;
+                total += rule12.Evaluate(row).Score;
+                total += rule13.Evaluate(row).Score;
                 /* call all rules here */
                 Console.WriteLine("Total score: " + total);
             }

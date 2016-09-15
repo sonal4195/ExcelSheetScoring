@@ -1,22 +1,20 @@
-﻿using System;
+﻿using BusinessLogic.Helpers;
+using ProjectDomain;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjectDomain;
 
-namespace BusinessLogic
+namespace BusinessLogic.Rules
 {
     public class Rule3 : IRule
     {
         
-        public Result logic(ExcelDataRow row)
+        public Result Evaluate(ExcelDataRow row)
         {
             Result result = new Result();
             if (row.ProjectManagementTool.Contains("na") || row.ProjectManagementTool.Contains("none"))
             {
-                result.signalColor = Result.colors.red;
-                result.score = 0;
+                result.SignalColor = Colors.Red;
+                result.Score = 0;
             }
             else
             { 
@@ -24,18 +22,17 @@ namespace BusinessLogic
                 tools.Add("jira"); tools.Add("hp qc"); tools.Add("tfs"); tools.Add("mingle"); tools.Add("trello"); tools.Add("salesforce"); 
                 if ( tools.Any(s => row.ProjectManagementTool.Contains(s)) )
                 {
-                    result.signalColor = Result.colors.green;
-                    result.score = 10;
+                    result.SignalColor = Colors.Green;
+                    result.Score = 10;
                 }
                 else
                 {
-                    result.signalColor = Result.colors.yellow;
-                    result.score = 8;
+                    result.SignalColor = Colors.Yellow;
+                    result.Score = 8;
                 }
             }
 
-            Console.WriteLine("Score for rule 3 : " + result.score);
-            Console.WriteLine("Color : " + result.signalColor.ToString());
+            Logger.LogRuleResult(this, result);
             return result;
         }
     }
