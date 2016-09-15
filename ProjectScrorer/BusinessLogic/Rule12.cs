@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    static class Rule12 :IRule
+    public class Rule12 :IRule
     {
-        public static Result logic(ExcelDataRow row)
+        public Result logic(ExcelDataRow row)
         {
             Result result = new Result();
             if (row.DevModel.ToLower().Contains("mixed") && row.Tests.ToLower().Contains("agile/scrum"))

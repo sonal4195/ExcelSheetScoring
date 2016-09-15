@@ -8,10 +8,9 @@ using ProjectDomain;
 
 namespace BusinessLogic
 {
-    class Rule5 : IRule
-    {
-       
-        public static Result logic(ExcelDataRow row)
+    public class Rule5 : IRule
+    {       
+        public Result logic(ExcelDataRow row)
         {
                 Result result = new Result();
                 List<string> monitor = new List<string>();

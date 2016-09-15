@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectDomain;
-using ProjectDomain.Result;
 
 namespace BusinessLogic
 {
-    static class Rule1 : IRule
+    public class Rule1 : IRule
     {
-        public static Result logic(ExcelDataRow row)
+        public Result logic(ExcelDataRow row)
         {
             Result result = new Result();
             result.signalColor = row.HasRepositorySystem == false ? Result.colors.red : (row.HasBackup == true ? Result.colors.green : Result.colors.yellow);

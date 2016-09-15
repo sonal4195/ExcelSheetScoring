@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjectDomain
 {
-    interface IRule
+    public interface IRule
     {
-        public static Result logic(ExcelDataRow row);
+        Result logic(ExcelDataRow row);
     }
 }

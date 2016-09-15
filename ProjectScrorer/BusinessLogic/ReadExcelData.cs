@@ -16,6 +16,7 @@ namespace BusinessLogic
             CheckFileExists(excelFilePath);
 
             var updatedRows = new List<ExcelDataRow>(); //ExcelDataRow - class to hold your excel row data - create your own
+            
             var excel = new FileInfo(excelFilePath);
             using (ExcelPackage xlPackage = new ExcelPackage(excel))
             {
@@ -24,95 +25,97 @@ namespace BusinessLogic
                 var Worksheet = xlPackage.Workbook.Worksheets.First();
                 var totalRows = Worksheet.Dimension.End.Row;
                 var totalColumns = Worksheet.Dimension.End.Column;
-                for (int rowNum = 2; rowNum <= totalRows; rowNum++)
+                for (int rowNum = 0; rowNum <= totalRows - 2; rowNum++)
                 {
+                    ExcelDataRow excelRow = new ExcelDataRow();
                     // check if there is any source control system : RULE 1
-                    if (Worksheet.Cells[rowNum, 14].ToString().ToLower().Contains("no"))  
+                    if (Worksheet.Cells[rowNum + 2, 14].ToString().ToLower().Contains("no"))  
                     {
-                        updatedRows[rowNum].HasRepositorySystem = false;
-                        updatedRows[rowNum].HasBackup = false;
+                        excelRow.HasRepositorySystem = false;
+                        excelRow.HasBackup = false;
                     }
                     else
                     {
-                        updatedRows[rowNum].HasRepositorySystem = true;
+                        excelRow.HasRepositorySystem = true;
                         // check if there is  any backup system
-                        if (Worksheet.Cells[rowNum, 16].ToString().ToLower().Contains("none") || Worksheet.Cells[rowNum, 16].ToString().ToLower().Contains("na"))
+                        if (Worksheet.Cells[rowNum+2, 16].ToString().ToLower().Contains("none") || Worksheet.Cells[rowNum+2, 16].ToString().ToLower().Contains("na"))
                         {
-                            updatedRows[rowNum].HasBackup = false;
+                            excelRow.HasBackup = false;
                         }
                         else
                         {
-                            updatedRows[rowNum].HasBackup = true;
+                            excelRow.HasBackup = true;
                         }
                     }
                     //check for rule 2
-                    if (Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("still in deciding stage") || Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("no"))
+                    if (Worksheet.Cells[rowNum+2, 18].ToString().ToLower().Contains("still in deciding stage") || Worksheet.Cells[rowNum+2, 18].ToString().ToLower().Contains("no"))
                     {
-                        updatedRows[rowNum].BranchingUsed = false;
-                        updatedRows[rowNum].TaggedReleases = false;
+                        excelRow.BranchingUsed = false;
+                        excelRow.TaggedReleases = false;
                     }
                     else
                     {
-                        updatedRows[rowNum].BranchingUsed = true;
-                        if (Worksheet.Cells[rowNum, 18].ToString().ToLower().Contains("branch per release"))
+                        excelRow.BranchingUsed = true;
+                        if (Worksheet.Cells[rowNum+2, 18].ToString().ToLower().Contains("branch per release"))
                         {
-                            updatedRows[rowNum].TaggedReleases = true;
+                            excelRow.TaggedReleases = true;
                         }
                         else
                         {
-                            updatedRows[rowNum].TaggedReleases = false;
+                            excelRow.TaggedReleases = false;
                         }
                     }
 
                     // add project management tool :  RULE 3
-                    updatedRows[rowNum].ProjectManagementTool = Worksheet.Cells[rowNum, 22].ToString().ToLower();
+                    excelRow.ProjectManagementTool = Worksheet.Cells[rowNum+2, 22].ToString().ToLower();
                     //check for rule 4
-                    if (Worksheet.Cells[rowNum, 23].ToString().ToLower().Contains("na"))
+                    if (Worksheet.Cells[rowNum+2, 23].ToString().ToLower().Contains("na"))
                     {
-                        updatedRows[rowNum].DocTool = "RedDocTool";
+                        excelRow.DocTool = "RedDocTool";
                     }
                     else
                     {
-                        if(Worksheet.Cells[rowNum, 23].ToString().ToLower().Contains("word/excel"))
+                        if(Worksheet.Cells[rowNum+2, 23].ToString().ToLower().Contains("word/excel"))
                         {
-                            updatedRows[rowNum].DocTool = "YellowDocTool";
+                            excelRow.DocTool = "YellowDocTool";
                         }
                         else
                         {
-                            updatedRows[rowNum].DocTool = "GreenDocTool";
+                            excelRow.DocTool = "GreenDocTool";
                         }
                     }
 
                     // RULE 5 : application monitoring  
-                    updatedRows[rowNum].ApplicationMonitoring = Worksheet.Cells[rowNum, 24].ToString().ToLower();
+                    excelRow.ApplicationMonitoring = Worksheet.Cells[rowNum+2, 24].ToString().ToLower();
 
                     // RULE 6 : Documentaion
-                    updatedRows[rowNum].Documentation = Worksheet.Cells[rowNum, 25].ToString().ToLower();
+                    excelRow.Documentation = Worksheet.Cells[rowNum+2, 25].ToString().ToLower();
 
                     // RULE  7 : Automated builds and  deployment
-                    updatedRows[rowNum].AutomatedBuildAndDeployment = Worksheet.Cells[rowNum, 27].ToString().ToLower();
+                    excelRow.AutomatedBuildAndDeployment = Worksheet.Cells[rowNum+2, 27].ToString().ToLower();
 
                     //RULE 8 :Tests
-                    updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 29].ToString().ToLower();
+                    excelRow.Tests = Worksheet.Cells[rowNum+2, 29].ToString().ToLower();
 
                     // RULE 9 : Coding guidelines followed
-                    updatedRows[rowNum].FollowCodeGuidelines = Worksheet.Cells[rowNum,32].ToString().ToLower().Contains("no") ? false : true;
-                    updatedRows[rowNum].GuideLines = Worksheet.Cells[rowNum, 33].ToString().ToLower();
+                    excelRow.FollowCodeGuidelines = Worksheet.Cells[rowNum+2,32].ToString().ToLower().Contains("no") ? false : true;
+                    excelRow.GuideLines = Worksheet.Cells[rowNum+2, 33].ToString().ToLower();
 
                     //RULE 10: Code Reviews
-                    updatedRows[rowNum].Tests = Worksheet.Cells[rowNum, 34].ToString().ToLower();
+                    excelRow.Tests = Worksheet.Cells[rowNum+2, 34].ToString().ToLower();
 
                     // RULE 11 :  Design discussions
-                    updatedRows[rowNum].DesignDiscussions = Worksheet.Cells[rowNum, 35].ToString().ToLower();
+                    excelRow.DesignDiscussions = Worksheet.Cells[rowNum+2, 35].ToString().ToLower();
 
                     //RULE 12: Development Model
-                    updatedRows[rowNum].DevModel = Worksheet.Cells[rowNum, 19].ToString().ToLower();
+                    excelRow.DevModel = Worksheet.Cells[rowNum+2, 19].ToString().ToLower();
 
                     // RULE 13 : Scrum Practices
-                    updatedRows[rowNum].ScrumPractices = Worksheet.Cells[rowNum, 36].ToString().ToLower();
+                    excelRow.ScrumPractices = Worksheet.Cells[rowNum+2, 36].ToString().ToLower();
 
                     //RULE 14: Test Coverage
-                    updatedRows[rowNum].TestCoverage = Worksheet.Cells[rowNum, 30].ToString().ToLower();
+                    excelRow.TestCoverage = Worksheet.Cells[rowNum+2, 30].ToString().ToLower();
+                    updatedRows.Add(excelRow);
                 }
             }
             Records.records = updatedRows;
@@ -128,13 +131,6 @@ namespace BusinessLogic
         {
             if (xlPackage.Workbook == null )
                 throw new InvalidDataException("Excel is corrupt! Check the file and upload again."); //+ excelFilePath
-        }
-
-        //Excel extension - create in a separate static class
-        public static string GetStringValueFirst(this ExcelRange cells)
-        {
-            var firstCell = cells.First();
-            return firstCell.Value == null ? string.Empty : firstCell.Value.ToString().Trim();
         }
     }
 }

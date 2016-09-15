@@ -7,9 +7,9 @@ using ProjectDomain;
 
 namespace BusinessLogic
 {
-    class Rule13 : IRule 
+    public class Rule13 : IRule 
     {
-        public static Result logic(ExcelDataRow row)
+        public Result logic(ExcelDataRow row)
         {
             Result result = new Result();
             if (row.ScrumPractices.Contains("release/sprint planning"))

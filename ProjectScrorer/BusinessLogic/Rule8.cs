@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    static class Rule8 : IRule
+    public class Rule8 : IRule
     {
-        public static Result logic(ExcelDataRow row)
+        public Result logic(ExcelDataRow row)
         {
             Result result = new Result();
             if (row.Tests.ToLower().Contains("automated") && row.Tests.ToLower().Contains("mutation"))

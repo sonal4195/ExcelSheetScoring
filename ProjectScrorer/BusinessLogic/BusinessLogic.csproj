@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReadExcelDataExtension.cs" />
     <Compile Include="Rule13.cs" />
     <Compile Include="Rule11.cs" />
+    <Compile Include="Rule14.cs" />
     <Compile Include="Rule5.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="ReadExcelData.cs" />

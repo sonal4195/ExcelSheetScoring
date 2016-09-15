@@ -7,10 +7,10 @@ using ProjectDomain;
 
 namespace BusinessLogic
 {
-    class Rule3 : IRule
+    public class Rule3 : IRule
     {
         
-        public static Result logic(ExcelDataRow row)
+        public Result logic(ExcelDataRow row)
         {
             Result result = new Result();
             if (row.ProjectManagementTool.Contains("na") || row.ProjectManagementTool.Contains("none"))

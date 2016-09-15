@@ -7,9 +7,9 @@ using ProjectDomain;
 
 namespace BusinessLogic
 {
-    class Rule9 : IRule 
+    public class Rule9 : IRule 
     {
-        public static Result logic(ExcelDataRow row)
+        public Result logic(ExcelDataRow row)
         {
             Result result = new Result();
             if (!row.FollowCodeGuidelines)

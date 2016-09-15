@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    static class Rule2 :IRule
+    public class Rule2 :IRule
     {
         
-        public static Result logic(ExcelDataRow row)
+        public Result logic(ExcelDataRow row)
         {
             Result result = new Result();
             result.signalColor = row.BranchingUsed == false ? Result.colors.red : (row.TaggedReleases == false ? Result.colors.yellow : Result.colors.green);
